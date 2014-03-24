@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>chef から dockerへの鞍替え</title>
+    <link rel="stylesheet" href="styles/styles.css"/>
+  </head>
+  <body>
+    <article>
+      <section>
+        <h1>chef -> docker</h1>
+      </section>
+      <section>
+        <h2>自己紹介</h2>
+        <ul>
+          <li></li>
+          <li>松崎 啓治(まつざき けいじ)</li>
+          <li><a href="https://twitter.com/xga">@xga</a></li>
+          <li><a href="https://twitter.com/search?q=%23%E9%9D%92%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC&src=typd&f=realtime">#青モンスター</a></li>
+          <li><a href="http://aiming-inc.com/">Aiming Inc.</a> で勤務</li>
+          <li>データ解析チーム -> <a href="http://qiita.com/futoase/items/a1660ffec9c67c586c3a">Qiita</a></li>
+        </ul>
+      </section>
+      <section>
+        <h1>chef</h1>
+        <ul>
+          <li></li>
+          <li>つかってますか?</li>
+        </ul>
+      </section>
+      <section>
+        <h2>冪等性</h2>
+        <ul>
+          <li></li>
+          <li>良い</li>
+        </ul>
+      </section>
+      <section>
+        <h2>何度もサーバ上で実行</h2>
+        <ul>
+          <li></li>
+          <li>同じ。</li>
+          <li>同じ。</li>
+          <li>同じ。</li>
+        </ul>
+      </section>
+      <section>
+        <h2>出来上がる環境</h2>
+        <ul>
+          <li></li>
+          <li>何度も同じだ！</li>
+        </ul>
+      </section>
+      <section>
+        <h2>良かった</h2>
+      </section>
+      <section>
+        <h2>が、</h2>
+      </section>
+      <section>
+        <h1>管理の問題</h1>
+        <ul>
+          <li></li>
+          <li>えっ</li>
+        </ul>
+      </section>
+      <section>
+        <h2>たとえば</h2>
+        <ul>
+          <li></li>
+          <li>Vagrant boxの構築・保管</li>
+          <li>ドキュメントの整備・保守</li>
+          <li>local環境の状態の維持</li>
+          <li>chef cookbookを更新した後の確認</li>
+        </ul>
+      </section>
+      <section>
+        <h2>chefでつらいこと</h2>
+        <ul>
+          <li></li>
+          <li>cookbook変更後のチェック</li>
+          <li>chefバージョンアップ後のチェック</li>
+        </ul>
+      </section>
+      <section>
+        <h2>cookbook適用の保証...</h2>
+        <ul>
+          <li></li>
+          <li>数が多くなるとしんどくなる(10以上〜)</li>
+          <li>元にしているcookbookがバージョンアップで非互換に</li>
+        </ul>
+      </section>
+      <section>
+        <h1>つらい</h1>
+      </section>
+      <section>
+        <h2>test-kitchenがあるじゃん</h2>
+        <ul>
+          <li></li>
+          <li>毎度回すのが大変</li>
+          <li>bentoを使ってテスト用のイメージでテスト</li>
+          <li>Berkshelfなどの依存関係解決せな</li>
+        </ul>
+      </section>
+      <section>
+        <h2>俺たちゃ解析したい</h2>
+        <ul>
+          <li></li>
+          <li>解析チーム、3人しかいない</li>
+          <li>マンパワーの限界</li>
+          <li>意味のある可視化に力を注ぎたい！</li>
+        </ul>
+      </section>
+      <section>
+        <h1>悶々とした日々</h1>
+        <ul>
+          <li></li>
+          <li>docker、CentOS でも使いたいなァ...</li>
+        </ul>
+      </section>
+      <section>
+        <h1>docker v0.7</h1>
+        <ul>
+          <li></li>
+          <li>RHELも動作対象だ！</li>
+          <li>やっちまおう！</li>
+        </ul>
+      </section>
+      <section>
+        <h2>どのアプリを対象にするか</h2>
+      </section>
+      <section>
+        <h2>安定してるアプリをdocker化</h2>
+        <ul>
+          <li></li>
+          <li>HRForecast</li>
+          <li>GrowthForecast</li>
+        </ul>
+      </section>
+      <section>
+        <h2>社内テスト</h2>
+        <ul>
+          <li></li>
+          <li>docker container安定</li>
+        </ul>
+      </section>
+      <section>
+        <h2>結果</h2>
+        <ul>
+          <li></li>
+          <li>productionもいっちゃえ</li>
+        </ul>
+      </section>
+      <section>
+        <h2>dockerの社内採用いけたかな</h2>
+      </section>
+      <section>
+        <h1>前と今</h1>
+      </section>
+      <section>
+        <h2>以前</h2>
+        <ul>
+          <li></li>
+          <li>chef + Vagrant + Berlshelf</li>
+          <li>変更があれば毎度ビルド</li>
+          <li>遅さによるやる気の遅滞</li>
+        </ul>
+      </section>
+      <section>
+        <h2>今</h2>
+        <ul>
+          <li></li>
+          <li>chef -> ansible</li>
+          <li>ansible-playbookでdocker runという形</li>
+          <li>tagで管理できるので環境を長期放置しても大丈夫(でしょう)</li>
+        </ul>
+      </section>
+      <section>
+        <h1>環境構築は簡単でなければ。</h1>
+      </section>
+      <section>
+        <h1>docker-registry</h1>
+        <ul>
+          <li></li>
+          <li>docker imageの管理</li>
+          <li>保管場所を考えなくても良い</li>
+          <li>ビルド済みの環境をダウンロードするだけで終わる</li>
+        </ul>
+      </section>
+      <section>
+        <h1>docker化</h1>
+        <ul>
+          <li></li>
+          <li>まだ一部しか置き換えられていない</li>
+          <li>適用できる範囲を広げていく</li>
+        </ul>
+      </section>
+      <section>
+        <h1>進めていきたい</h1>
+        <h2>td-agent</h2>
+        <ul>
+          <li></li>
+          <li>設定ファイルの煩雑さを分割することで抑える</li>
+          <li>containerを複数のマシンに展開</li>
+        </ul>
+      </section>
+      <section>
+        <h1>進めていきたい</h1>
+        <h2>BIツール</h2>
+        <ul>
+          <li></li>
+          <li>リグレッションで壊れたら利用者こまる</li>
+          <li>調子のいいときのイメージをdockerによってアーカイブ</li>
+        </ul>
+      </section>
+      <section>
+        <h1>やりたいことに力を注ぎたい</h1>
+        <ul>
+          <li></li>
+          <li>環境構築の時間を解析のために割きたい</li>
+        </ul>
+      </section>
+      <section>
+        <h1>不安点</h1>
+        <ul>
+          <li></li>
+          <li>運用ノウハウの不足</li>
+          <li>dockerのβ感</li>
+          <li>dockerに縛られることになる?</li>
+        </ul>
+      </section>
+      <section>
+        <h1>特にノウハウ面</h1>
+        <ul>
+          <li></li>
+          <li>社内/社外問わず情報共有していきたい</li>
+          <li>よろしくお願いしますm(_ _)m</li>
+        </ul>
+      </section>
+      <section>
+        <h1>以上です</h1>
+      </section>
+      <section>
+        <h1>ご清聴ありがとうございました</h1>
+      </section>
+    </article>
+    <script src="bower_components/bespoke.js/dist/bespoke.min.js"></script>
+    <script src="bower_components/bespoke-keys/dist/bespoke-keys.min.js"></script>
+    <script src="bower_components/bespoke-touch/dist/bespoke-touch.min.js"></script>
+    <script src="bower_components/bespoke-bullets/dist/bespoke-bullets.min.js"></script>
+    <script src="bower_components/bespoke-scale/dist/bespoke-scale.min.js"></script>
+    <script src="bower_components/bespoke-hash/dist/bespoke-hash.min.js"></script>
+    <script src="bower_components/bespoke-progress/dist/bespoke-progress.min.js"></script>
+    <script src="bower_components/bespoke-state/dist/bespoke-state.min.js"></script>
+    <script src="bower_components/bespoke-forms/dist/bespoke-forms.min.js"></script>
+    <script src="bower_components/prism/prism.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- endbuild-->
+  </body>
+</html>
