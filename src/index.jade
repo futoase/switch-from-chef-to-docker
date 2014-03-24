@@ -1,0 +1,240 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title chef から dockerへの鞍替え
+
+    // build:css styles/styles.css
+    //- Check out 'src/bower_components/prism/themes/' for available themes
+    link(rel='stylesheet', type='text/css', href='bower_components/prism/themes/prism-tomorrow.css')
+    link(rel='stylesheet', type='text/css', href='styles/main.css')
+    // endbuild
+
+  body
+
+    article
+
+      section
+        h1 chef -> docker
+
+      section
+        h2 自己紹介
+        ul
+          li
+          li 松崎 啓治(まつざき けいじ)
+          li <a href="https://twitter.com/xga">@xga</a>
+          li <a href="https://twitter.com/search?q=%23%E9%9D%92%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC&src=typd&f=realtime">#青モンスター</a>
+          li <a href="http://aiming-inc.com/">Aiming Inc.</a> で勤務
+          li データ解析チーム -> <a href="http://qiita.com/futoase/items/a1660ffec9c67c586c3a">Qiita</a>
+      
+      section
+        h1 chef
+        ul
+          li
+          li つかってますか?
+      
+      section
+        h2 冪等性
+        ul
+          li
+          li 良い
+
+      section
+        h2 何度もサーバ上で実行
+        ul
+          li
+          li 同じ。
+          li 同じ。
+          li 同じ。
+
+      section
+        h2 出来上がる環境
+        ul
+          li 
+          li 何度も同じだ！
+
+      section
+        h2 良かった
+
+      section
+        h2 が、
+
+      section
+        h1 管理の問題
+        ul
+          li
+          li えっ
+
+      section
+        h2 たとえば
+        ul
+          li
+          li Vagrant boxの構築・保管
+          li ドキュメントの整備・保守
+          li local環境の状態の維持
+          li chef cookbookを更新した後の確認
+
+      section
+        h2 chefでつらいこと
+        ul
+          li
+          li cookbook変更後のチェック
+          li chefバージョンアップ後のチェック
+
+      section
+        h2 cookbook適用の保証...
+        ul
+          li
+          li 数が多くなるとしんどくなる(10以上〜)
+          li 元にしているcookbookがバージョンアップで非互換に
+
+      section
+        h1 つらい
+
+      section
+        h2 test-kitchenがあるじゃん
+        ul
+          li
+          li 毎度回すのが大変
+          li bentoを使ってテスト用のイメージでテスト
+          li Berkshelfなどの依存関係解決せな
+
+      section
+        h2 俺たちゃ解析したい
+        ul
+          li
+          li 解析チーム、3人しかいない
+          li マンパワーの限界
+          li 意味のある可視化に力を注ぎたい！
+
+      section
+        h1 悶々とした日々
+        ul
+          li
+          li docker、CentOS でも使いたいなァ...
+        
+      section
+        h1 docker v0.7
+        ul
+          li
+          li RHELも動作対象だ！
+          li やっちまおう！
+
+      section
+        h2 どのアプリを対象にするか
+
+      section
+        h2 安定してるアプリをdocker化
+        ul
+          li
+          li HRForecast
+          li GrowthForecast
+
+      section
+        h2 社内テスト
+        ul
+          li
+          li docker container安定
+
+      section
+        h2 結果
+        ul
+          li 
+          li productionもいっちゃえ
+
+      section
+        h2 dockerの社内採用いけたかな
+
+      section
+        h1 前と今
+
+      section
+        h2 以前
+        ul
+          li 
+          li chef + Vagrant + Berlshelf
+          li 変更があれば毎度ビルド
+          li 遅さによるやる気の遅滞
+
+      section
+        h2 今
+        ul
+          li 
+          li chef -> ansible
+          li ansible-playbookでdocker runという形
+          li tagで管理できるので環境を長期放置しても大丈夫(でしょう)
+
+      section
+        h1 環境構築は簡単でなければ。
+
+      section
+        h1 docker-registry
+        ul
+          li
+          li docker imageの管理
+          li 保管場所を考えなくても良い
+          li ビルド済みの環境をダウンロードするだけで終わる
+
+      section
+        h1 docker化
+        ul
+          li
+          li まだ一部しか置き換えられていない
+          li 適用できる範囲を広げていく
+
+      section
+        h1 進めていきたい
+        h2 td-agent
+        ul
+          li
+          li 設定ファイルの煩雑さを分割することで抑える
+          li containerを複数のマシンに展開
+
+      section
+        h1 進めていきたい
+        h2 BIツール
+        ul
+          li
+          li リグレッションで壊れたら利用者こまる
+          li 調子のいいときのイメージをdockerによってアーカイブ
+
+      section
+        h1 やりたいことに力を注ぎたい
+        ul
+          li 
+          li 環境構築の時間を解析のために割きたい
+
+      section
+        h1 不安点
+        ul
+          li 
+          li 運用ノウハウの不足
+          li dockerのβ感
+          li dockerに縛られることになる?
+
+      section
+        h1 特にノウハウ面
+        ul
+          li
+          li 社内/社外問わず情報共有していきたい
+          li よろしくお願いしますm(_ _)m
+
+      section
+        h1 以上です
+
+      section
+        h1 ご清聴ありがとうございました
+
+    script(src='bower_components/bespoke.js/dist/bespoke.min.js')
+    script(src='bower_components/bespoke-keys/dist/bespoke-keys.min.js')
+    script(src='bower_components/bespoke-touch/dist/bespoke-touch.min.js')
+    script(src='bower_components/bespoke-bullets/dist/bespoke-bullets.min.js')
+    script(src='bower_components/bespoke-scale/dist/bespoke-scale.min.js')
+    script(src='bower_components/bespoke-hash/dist/bespoke-hash.min.js')
+    script(src='bower_components/bespoke-progress/dist/bespoke-progress.min.js')
+    script(src='bower_components/bespoke-state/dist/bespoke-state.min.js')
+    script(src='bower_components/bespoke-forms/dist/bespoke-forms.min.js')
+    script(src='bower_components/prism/prism.js')
+    script(src='scripts/main.js')
+    // endbuild
