@@ -18,8 +18,8 @@
           <li>松崎 啓治(まつざき けいじ)</li>
           <li><a href="https://twitter.com/xga">@xga</a></li>
           <li><a href="https://twitter.com/search?q=%23%E9%9D%92%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC&src=typd&f=realtime">#青モンスター</a></li>
-          <li><a href="http://aiming-inc.com/">Aiming Inc.</a> で勤務</li>
-          <li>データ解析チーム -> <a href="http://qiita.com/futoase/items/a1660ffec9c67c586c3a">Qiita</a></li>
+          <li><a href="http://aiming-inc.com/"><image src="http://developer.aiming-inc.com/wp-content/themes/developerblog/images/logo_aiming.png"/></a> 勤務</li>
+          <li>所属:データ解析チーム -> <a href="http://qiita.com/futoase/items/a1660ffec9c67c586c3a">Qiita</a></li>
         </ul>
       </section>
       <section>
@@ -70,7 +70,7 @@
         <ul>
           <li></li>
           <li>Vagrant boxの構築・保管</li>
-          <li>ドキュメントの整備・保守</li>
+          <li>構築手順ドキュメントの整備・保守</li>
           <li>local環境の状態の維持</li>
           <li>chef cookbookを更新した後の確認</li>
         </ul>
@@ -87,7 +87,7 @@
         <h2>cookbook適用の保証...</h2>
         <ul>
           <li></li>
-          <li>数が多くなるとしんどくなる(10以上〜)</li>
+          <li>数が多くなると管理がしんどくなる(10以上〜)</li>
           <li>元にしているcookbookがバージョンアップで非互換に</li>
         </ul>
       </section>
@@ -128,8 +128,17 @@
         </ul>
       </section>
       <section>
-        <h2>どのアプリを対象にするか</h2>
+        <h1>全とっかえはNO</h1>
+        <ul>
+          <li></li>
+          <li>手付けてからいつ終わるかわからない</li>
+          <li>とにかく試したいし</li>
+        </ul>
       </section>
+      <section>
+        <h2>どこを対象にするか</h2>
+      </section>
+      <section><image src="images/structure.jpg" width="300" height="400" border="0"/></section>
       <section>
         <h2>安定してるアプリをdocker化</h2>
         <ul>
@@ -139,21 +148,23 @@
         </ul>
       </section>
       <section>
-        <h2>社内テスト</h2>
+        <h2>社内テスト実施</h2>
         <ul>
           <li></li>
+          <li>デ〜タが注ぎ込まれていく</li>
           <li>docker container安定</li>
+          <li>きちんとグラフ出力できてる</li>
         </ul>
       </section>
       <section>
         <h2>結果</h2>
         <ul>
           <li></li>
-          <li>productionもいっちゃえ</li>
+          <li>このままproductionもいっちゃえ</li>
         </ul>
       </section>
       <section>
-        <h2>dockerの社内採用いけたかな</h2>
+        <h2>dockerの社内採用OK</h2>
       </section>
       <section>
         <h1>前と今</h1>
@@ -162,9 +173,9 @@
         <h2>以前</h2>
         <ul>
           <li></li>
-          <li>chef + Vagrant + Berlshelf</li>
-          <li>変更があれば毎度ビルド</li>
-          <li>遅さによるやる気の遅滞</li>
+          <li>chef + Vagrant + Berkshelfが鉄板だよね</li>
+          <li>構成変更があれば毎度レシピを再ビルド</li>
+          <li>ビルドの遅さ・手順によるやる気の遅滞(knifeとかあるけど)</li>
         </ul>
       </section>
       <section>
@@ -178,6 +189,12 @@
       </section>
       <section>
         <h1>環境構築は簡単でなければ。</h1>
+        <ul>
+          <li></li>
+          <li>環境を気兼ねなくぶっ壊せるように</li>
+          <li>ぶっ壊した後さり気なく再現できるように</li>
+          <li>どんどん新しいことを試せるようにする</li>
+        </ul>
       </section>
       <section>
         <h1>docker-registry</h1>
@@ -201,8 +218,9 @@
         <h2>td-agent</h2>
         <ul>
           <li></li>
-          <li>設定ファイルの煩雑さを分割することで抑える</li>
-          <li>containerを複数のマシンに展開</li>
+          <li>テスト用のdocker imageを作った程度</li>
+          <li>設定ファイルの煩雑さをcontainer分割で解決していきたい</li>
+          <li>containerを複数のマシンに展開しやすそう</li>
         </ul>
       </section>
       <section>
@@ -218,8 +236,14 @@
         <h1>やりたいことに力を注ぎたい</h1>
         <ul>
           <li></li>
+          <li>効果測定をやりたい</li>
+          <li>デプロイのために生きているわけじゃない</li>
           <li>環境構築の時間を解析のために割きたい</li>
+          <li>「困ったらあの時に戻りたい」を簡単にしたい</li>
         </ul>
+      </section>
+      <section>
+        <h1>dockerの有用性を社内に広めていく </h1>
       </section>
       <section>
         <h1>不安点</h1>
@@ -234,7 +258,8 @@
         <h1>特にノウハウ面</h1>
         <ul>
           <li></li>
-          <li>社内/社外問わず情報共有していきたい</li>
+          <li>監視方法(dstat? docker top? fluentd?)</li>
+          <li>社内/社外問わず情報共有しないと...</li>
           <li>よろしくお願いしますm(_ _)m</li>
         </ul>
       </section>
@@ -243,6 +268,15 @@
       </section>
       <section>
         <h1>ご清聴ありがとうございました</h1>
+      </section>
+      <section>
+        <h1>おまけ</h1>
+      </section>
+      <section>
+        <h1>
+          インセプション
+          <image src="images/yabai.jpg" width="400" height="300" border="0"/>
+        </h1>
       </section>
     </article>
     <script src="bower_components/bespoke.js/dist/bespoke.min.js"></script>
