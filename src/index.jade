@@ -25,8 +25,8 @@ html
           li 松崎 啓治(まつざき けいじ)
           li <a href="https://twitter.com/xga">@xga</a>
           li <a href="https://twitter.com/search?q=%23%E9%9D%92%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC&src=typd&f=realtime">#青モンスター</a>
-          li <a href="http://aiming-inc.com/">Aiming Inc.</a> で勤務
-          li データ解析チーム -> <a href="http://qiita.com/futoase/items/a1660ffec9c67c586c3a">Qiita</a>
+          li <a href="http://aiming-inc.com/"><image src="http://developer.aiming-inc.com/wp-content/themes/developerblog/images/logo_aiming.png"/></a> 勤務
+          li 所属:データ解析チーム -> <a href="http://qiita.com/futoase/items/a1660ffec9c67c586c3a">Qiita</a>
       
       section
         h1 chef
@@ -71,7 +71,7 @@ html
         ul
           li
           li Vagrant boxの構築・保管
-          li ドキュメントの整備・保守
+          li 構築手順ドキュメントの整備・保守
           li local環境の状態の維持
           li chef cookbookを更新した後の確認
 
@@ -86,7 +86,7 @@ html
         h2 cookbook適用の保証...
         ul
           li
-          li 数が多くなるとしんどくなる(10以上〜)
+          li 数が多くなると管理がしんどくなる(10以上〜)
           li 元にしているcookbookがバージョンアップで非互換に
 
       section
@@ -122,7 +122,17 @@ html
           li やっちまおう！
 
       section
-        h2 どのアプリを対象にするか
+        h1 全とっかえはNO
+        ul
+          li
+          li 手付けてからいつ終わるかわからない
+          li とにかく試したいし
+
+      section
+        h2 どこを対象にするか
+
+      section
+        <image src="images/structure.jpg" width="300" height="400" border="0"/>
 
       section
         h2 安定してるアプリをdocker化
@@ -132,19 +142,21 @@ html
           li GrowthForecast
 
       section
-        h2 社内テスト
+        h2 社内テスト実施
         ul
           li
+          li デ〜タが注ぎ込まれていく
           li docker container安定
+          li きちんとグラフ出力できてる
 
       section
         h2 結果
         ul
           li 
-          li productionもいっちゃえ
+          li このままproductionもいっちゃえ
 
       section
-        h2 dockerの社内採用いけたかな
+        h2 dockerの社内採用OK
 
       section
         h1 前と今
@@ -153,9 +165,9 @@ html
         h2 以前
         ul
           li 
-          li chef + Vagrant + Berlshelf
-          li 変更があれば毎度ビルド
-          li 遅さによるやる気の遅滞
+          li chef + Vagrant + Berkshelfが鉄板だよね
+          li 構成変更があれば毎度レシピを再ビルド
+          li ビルドの遅さ・手順によるやる気の遅滞(knifeとかあるけど)
 
       section
         h2 今
@@ -167,6 +179,11 @@ html
 
       section
         h1 環境構築は簡単でなければ。
+        ul
+          li
+          li 環境を気兼ねなくぶっ壊せるように
+          li ぶっ壊した後さり気なく再現できるように
+          li どんどん新しいことを試せるようにする
 
       section
         h1 docker-registry
@@ -188,8 +205,9 @@ html
         h2 td-agent
         ul
           li
-          li 設定ファイルの煩雑さを分割することで抑える
-          li containerを複数のマシンに展開
+          li テスト用のdocker imageを作った程度
+          li 設定ファイルの煩雑さをcontainer分割で解決していきたい
+          li containerを複数のマシンに展開しやすそう
 
       section
         h1 進めていきたい
@@ -202,8 +220,14 @@ html
       section
         h1 やりたいことに力を注ぎたい
         ul
-          li 
+          li
+          li 効果測定をやりたい
+          li デプロイのために生きているわけじゃない
           li 環境構築の時間を解析のために割きたい
+          li 「困ったらあの時に戻りたい」を簡単にしたい
+
+      section
+        h1 dockerの有用性を社内に広めていく 
 
       section
         h1 不安点
@@ -217,7 +241,8 @@ html
         h1 特にノウハウ面
         ul
           li
-          li 社内/社外問わず情報共有していきたい
+          li 監視方法(dstat? docker top? fluentd?)
+          li 社内/社外問わず情報共有しないと...
           li よろしくお願いしますm(_ _)m
 
       section
@@ -225,6 +250,13 @@ html
 
       section
         h1 ご清聴ありがとうございました
+
+      section
+        h1 おまけ
+
+      section
+        h1 インセプション
+          <image src="images/yabai.jpg" width="400" height="300" border="0"/>
 
     script(src='bower_components/bespoke.js/dist/bespoke.min.js')
     script(src='bower_components/bespoke-keys/dist/bespoke-keys.min.js')
